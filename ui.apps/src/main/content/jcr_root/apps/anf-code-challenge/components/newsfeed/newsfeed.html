@@ -1,0 +1,26 @@
+<sly
+  data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+  data-sly-call="${clientlib.all @ categories=['anf-code-challenge.base']}"
+></sly>
+
+<h1>News Feed</h1>
+<sly data-sly-use.feeds="com.anf.core.models.NewsFeedModel">
+  <div data-sly-list.news="${feeds.newsData}" class="newsListContainer">
+    <div class="news">
+      <a href="${news.url}" class="newsLink">
+        <div class="imgcontainer">
+          <img src="${news.urlImage}" alt="${news.title}" class="feedimage" />
+        </div>
+        <div class="contents">
+          <h2>${news.title}</h2>
+          <div>
+            <p>${feeds.currentDate} || ${news.author}</p>
+          </div>
+          <div class="description">
+            <p>${news.description}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</sly>
